@@ -1,0 +1,57 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="container my-4">
+    <h2 class="mb-4"><i class="bi bi-speedometer2"></i> Dashboard</h2>
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card text-bg-primary shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="bi bi-hdd-stack-fill me-2"></i>Total Assets</h5>
+                    <h3 class="card-text">@ViewBag.TotalAssets</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-bg-success shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="bi bi-check-circle-fill me-2"></i>Available Assets</h5>
+                    <h3 class="card-text">@ViewBag.AvailableAssets</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-bg-warning shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="bi bi-tools me-2"></i>Under Service</h5>
+                    <h3 class="card-text">@ViewBag.UnderServiceAssets</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-bg-secondary shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="bi bi-exclamation-triangle-fill me-2"></i>Not Working</h5>
+                    <h3 class="card-text">@ViewBag.NotWorkingAssets</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-bg-info shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="bi bi-people-fill me-2"></i>Total Employees</h5>
+                    <h3 class="card-text">@ViewBag.TotalEmployees</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-bg-dark shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="bi bi-box-arrow-up-right me-2"></i>Assigned Assets</h5>
+                    <h3 class="card-text">@ViewBag.AssignedAssets</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
