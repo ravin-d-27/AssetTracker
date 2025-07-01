@@ -174,5 +174,51 @@ namespace AssetTracker.Controllers
         {
             return _context.AssetAssignments.Any(e => e.Id == id);
         }
+
+
+        public async Task<IActionResult> Return(int? id)
+        {
+            if (id==null)
+            {
+                return NotFound();
+            }
+
+            var assetAssignment = await _context.AssetAssignments
+                .Include(a => a.Asset)
+                .Include(a => a.Employee)
+                .FirstOrDefaultAsync(m => m.Id == id);
+
+            if (assetAssignment==null)
+            {
+                return NotFound();
+            }
+
+            return View(assetAssignment);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Return (int id, [Bind("Id, ReturnDate, ConditionAtReturn")] AssetAssignment updatedAssignment)
+        {
+            var assignment = await _context.AssetAssignments
+                .Include(a => a.Asset)
+                .FirstOrDefaultAsync(a => a.Id == id);
+
+            if (assignment==null)
+            {
+                NotFound();
+            }
+
+            assignment.ReturnDate = updatedAssignment.ReturnDate ?? DateTime.Now;
+            assignment.ConditionAtReturn = updatedAssignment.ConditionAtReturn;
+
+            if (assignment.Asset!=null)
+            {
+                assignment.Asset.Status = "Available";
+            }
+
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
