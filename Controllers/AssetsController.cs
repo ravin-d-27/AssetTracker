@@ -66,6 +66,8 @@ namespace AssetTracker.Controllers
         }
 
         // GET: Assets/Edit/5
+        // AssetsController.cs
+
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -78,8 +80,20 @@ namespace AssetTracker.Controllers
             {
                 return NotFound();
             }
+
+            // Check if this asset is currently assigned
+            var isAssigned = await _context.AssetAssignments
+                .AnyAsync(a => a.AssetId == id && a.ReturnDate == null);
+
+            if (isAssigned)
+            {
+                TempData["ErrorMessage"] = "This asset is currently assigned and cannot be edited.";
+                return RedirectToAction(nameof(Index));
+            }
+
             return View(asset);
         }
+
 
         // POST: Assets/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.

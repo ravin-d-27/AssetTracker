@@ -16,5 +16,7 @@ namespace AssetTracker.Web.Models.Entities
         public string Status { get; set; } // Available, Assigned, Damaged, Lost
 
         public ICollection<AssetAssignment> AssetAssignments { get; set; } = new List<AssetAssignment>();
+
+
     }
 }
