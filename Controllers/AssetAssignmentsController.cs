@@ -152,41 +152,6 @@ namespace AssetTracker.Controllers
             return View(assetAssignment);
         }
 
-        // GET: AssetAssignments/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var assetAssignment = await _context.AssetAssignments
-                .Include(a => a.Asset)
-                .Include(a => a.Employee)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (assetAssignment == null)
-            {
-                return NotFound();
-            }
-
-            return View(assetAssignment);
-        }
-
-        // POST: AssetAssignments/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var assetAssignment = await _context.AssetAssignments.FindAsync(id);
-            if (assetAssignment != null)
-            {
-                _context.AssetAssignments.Remove(assetAssignment);
-            }
-
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
         private bool AssetAssignmentExists(int id)
         {
             return _context.AssetAssignments.Any(e => e.Id == id);

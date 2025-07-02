@@ -20,6 +20,7 @@
                 <table class="table table-hover mb-0">
                     <thead class="table-light">
                         <tr>
+                            <th>@Html.DisplayNameFor(model => model.First().EmployeeNumber)</th>
                             <th>@Html.DisplayNameFor(model => model.First().Name)</th>
                             <th>@Html.DisplayNameFor(model => model.First().Email)</th>
                             <th>@Html.DisplayNameFor(model => model.First().Department)</th>
@@ -31,6 +32,7 @@
                         @foreach (var item in Model)
                         {
                             <tr>
+                                <td>@Html.DisplayFor(modelItem => item.EmployeeNumber)</td>
                                 <td>@Html.DisplayFor(modelItem => item.Name)</td>
                                 <td>@Html.DisplayFor(modelItem => item.Email)</td>
                                 <td>@Html.DisplayFor(modelItem => item.Department)</td>

@@ -10,6 +10,8 @@ namespace AssetTracker.Web.Models.Entities
         public string Type { get; set; }
 
         public string Model { get; set; }
+
+        [Required]
         public string SerialNumber { get; set; }
         public DateTime PurchaseDate { get; set; }
 

@@ -16,25 +16,31 @@
                 <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
 
                 <div class="mb-3">
-                    <label asp-for="Name" class="form-label"></label>
+                    <label asp-for="Name" class="form-label">Employee Number</label>
+                    <input asp-for="EmployeeNumber" class="form-control" placeholder="e.g., 100" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Name" class="form-label">Employee Name</label>
                     <input asp-for="Name" class="form-control" placeholder="e.g., John Doe" />
                     <span asp-validation-for="Name" class="text-danger"></span>
                 </div>
 
                 <div class="mb-3">
-                    <label asp-for="Email" class="form-label"></label>
+                    <label asp-for="Email" class="form-label">Email ID</label>
                     <input asp-for="Email" class="form-control" placeholder="e.g., john.doe@example.com" />
                     <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
 
                 <div class="mb-3">
-                    <label asp-for="Department" class="form-label"></label>
+                    <label asp-for="Department" class="form-label">Department</label>
                     <input asp-for="Department" class="form-control" placeholder="e.g., IT, HR, Finance" />
                     <span asp-validation-for="Department" class="text-danger"></span>
                 </div>
 
                 <div class="mb-3">
-                    <label asp-for="Phone" class="form-label"></label>
+                    <label asp-for="Phone" class="form-label">Phone Number</label>
                     <input asp-for="Phone" class="form-control" placeholder="e.g., +1 123-456-7890" />
                     <span asp-validation-for="Phone" class="text-danger"></span>
                 </div>

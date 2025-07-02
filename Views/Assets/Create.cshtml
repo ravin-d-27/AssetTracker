@@ -15,31 +15,43 @@
                 <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
 
                 <div class="mb-3">
-                    <label asp-for="Type" class="form-label"></label>
-                    <input asp-for="Type" class="form-control" placeholder="e.g., Laptop, Monitor, Keyboard" />
-                    <span asp-validation-for="Type" class="text-danger"></span>
+                    <label asp-for="Type" class="form-label">Asset Type</label>
+                    <select asp-for="Type" class="form-select">
+                        <option value="">-- Select Asset Type --</option>
+                        <option>Accessories</option>
+                        <option>HeadPhone</option>
+                        <option>iPad</option>
+                        <option>Keyboard</option>
+                        <option>Laptop</option>
+                        <option>Mobile Phone</option>
+                        <option>Monitor</option>
+                        <option>Mouse</option>
+                        <option>Tablet</option>
+                        <option>Others</option>
+                    </select>
+                    <span asp-validation-for="Status" class="text-danger"></span>
                 </div>
 
                 <div class="mb-3">
-                    <label asp-for="Model" class="form-label"></label>
+                    <label asp-for="Model" class="form-label">Asset Name</label>
                     <input asp-for="Model" class="form-control" placeholder="e.g., Dell XPS 13, HP ProDisplay" />
                     <span asp-validation-for="Model" class="text-danger"></span>
                 </div>
 
                 <div class="mb-3">
-                    <label asp-for="SerialNumber" class="form-label"></label>
+                    <label asp-for="SerialNumber" class="form-label">Serial Number</label>
                     <input asp-for="SerialNumber" class="form-control" placeholder="Unique serial number" />
                     <span asp-validation-for="SerialNumber" class="text-danger"></span>
                 </div>
 
                 <div class="mb-3">
-                    <label asp-for="PurchaseDate" class="form-label"></label>
+                    <label asp-for="PurchaseDate" class="form-label">Purchase Date</label>
                     <input asp-for="PurchaseDate" type="date" class="form-control" />
                     <span asp-validation-for="PurchaseDate" class="text-danger"></span>
                 </div>
 
                 <div class="mb-3">
-                    <label asp-for="Status" class="form-label"></label>
+                    <label asp-for="Status" class="form-label">Status</label>
                     <select asp-for="Status" class="form-select">
                         <option value="">-- Select Status --</option>
                         <option>Available</option>

@@ -2,52 +2,52 @@
 
 @{
     ViewData["Title"] = "Assignment Details";
-    var isReturned = Model.ReturnDate != null;
 }
 
 <div class="container my-4">
     <div class="card shadow-sm">
-        <div class="card-header bg-primary text-white d-flex align-items-center">
-            <i class="bi bi-info-circle-fill me-2"></i>
+        <div class="card-header bg-primary text-white">
             <h5 class="mb-0">Assignment Details</h5>
-            <span class="ms-auto badge @(isReturned ? "bg-success" : "bg-warning text-dark")">
-                @(isReturned ? "Returned" : "Active")
-            </span>
         </div>
         <div class="card-body">
-            <dl class="row mb-0">
-                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Asset)</dt>
-                <dd class="col-sm-8">@Html.DisplayFor(model => model.Asset.Type)</dd>
+            <dl class="row">
+                <dt class="col-sm-3">Asset Model</dt>
+                <dd class="col-sm-9">@Model.Asset.Model</dd>
 
-                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Employee)</dt>
-                <dd class="col-sm-8">@Html.DisplayFor(model => model.Employee.Name)</dd>
+                <dt class="col-sm-3">Asset Type</dt>
+                <dd class="col-sm-9">@Model.Asset.Type</dd>
 
-                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.AssignedDate)</dt>
-                <dd class="col-sm-8">@Html.DisplayFor(model => model.AssignedDate)</dd>
+                <dt class="col-sm-3">Asset Status</dt>
+                <dd class="col-sm-9">@Model.Asset.Status</dd>
 
-                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.ReturnDate)</dt>
-                <dd class="col-sm-8">@Html.DisplayFor(model => model.ReturnDate)</dd>
+                <dt class="col-sm-3">Employee</dt>
+                <dd class="col-sm-9">@Model.Employee.Name</dd>
 
-                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.ConditionAtReturn)</dt>
-                <dd class="col-sm-8">@Html.DisplayFor(model => model.ConditionAtReturn)</dd>
+                <dt class="col-sm-3">Assigned Date</dt>
+                <dd class="col-sm-9">@Model.AssignedDate.ToString("g")</dd>
+
+
+                <dt class="col-sm-3">Return Date</dt>
+                @if (!Model.ReturnDate.HasValue)
+                {
+                    <dd class="col-sm-9">Not Returned</dd>
+                }
+                else
+                {
+                    <dd class="col-sm-9">@Model.ReturnDate?.ToString("g")</dd>
+                }
+                <dt class="col-sm-3">Condition At Return</dt>
+                <dd class="col-sm-9">@Model.ConditionAtReturn</dd>
             </dl>
-        </div>
-        <div class="card-footer d-flex justify-content-between">
-            @if (!isReturned)
-            {
-                <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">
+
+            <div class="mt-4 d-flex justify-content-between">
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">
                     <i class="bi bi-pencil-square"></i> Edit
                 </a>
-            }
-            else
-            {
-                <button class="btn btn-secondary" disabled>
-                    <i class="bi bi-pencil-square"></i> Edit Disabled
-                </button>
-            }
-            <a asp-action="Index" class="btn btn-outline-secondary">
-                <i class="bi bi-arrow-left"></i> Back to List
-            </a>
+                <a asp-action="Index" class="btn btn-secondary">
+                    <i class="bi bi-arrow-left"></i> Back to List
+                </a>
+            </div>
         </div>
     </div>
 </div>

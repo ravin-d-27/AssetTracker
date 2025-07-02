@@ -16,25 +16,25 @@
                 <input type="hidden" asp-for="Id" />
 
                 <div class="mb-3">
-                    <label asp-for="AssetId" class="form-label"></label>
+                    <label asp-for="AssetId" class="form-label">Asset Type</label>
                     <select asp-for="AssetId" class="form-select" asp-items="ViewBag.AssetId"></select>
                     <span asp-validation-for="AssetId" class="text-danger"></span>
                 </div>
 
                 <div class="mb-3">
-                    <label asp-for="EmployeeId" class="form-label"></label>
+                    <label asp-for="EmployeeId" class="form-label">Employee Name</label>
                     <select asp-for="EmployeeId" class="form-select" asp-items="ViewBag.EmployeeId"></select>
                     <span asp-validation-for="EmployeeId" class="text-danger"></span>
                 </div>
 
                 <div class="mb-3">
-                    <label asp-for="AssignedDate" class="form-label"></label>
+                    <label asp-for="AssignedDate" class="form-label">Assigned Date</label>
                     <input asp-for="AssignedDate" class="form-control" />
                     <span asp-validation-for="AssignedDate" class="text-danger"></span>
                 </div>
 
                 <div class="mb-3">
-                    <label asp-for="ConditionAtReturn" class="form-label"></label>
+                    <label asp-for="ConditionAtReturn" class="form-label">Condition at Return</label>
                     <input asp-for="ConditionAtReturn" class="form-control" />
                     <span asp-validation-for="ConditionAtReturn" class="text-danger"></span>
                 </div>

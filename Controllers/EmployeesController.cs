@@ -56,7 +56,7 @@ namespace AssetTracker.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Email,Department,Phone")] Employee employee)
+        public async Task<IActionResult> Create([Bind("Id,EmployeeNumber,Name,Email,Department,Phone")] Employee employee)
         {
             Console.WriteLine("POST Create called");
             if (ModelState.IsValid)
@@ -99,7 +99,7 @@ namespace AssetTracker.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Email,Department,Phone")] Employee employee)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,EmployeeNumber,Name,Email,Department,Phone")] Employee employee)
         {
             if (id != employee.Id)
             {
