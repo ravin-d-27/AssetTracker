@@ -2,55 +2,64 @@
     ViewData["Title"] = "Dashboard";
 }
 
-<div class="container my-4">
-    <h2 class="mb-4"><i class="bi bi-speedometer2"></i> Dashboard</h2>
+<div class="container py-4">
+    <h2 class="mb-4 fw-semibold text-dark">
+        <i class="bi bi-speedometer2 me-1 text-primary"></i> Dashboard
+    </h2>
+
     <div class="row g-4">
         <div class="col-md-4">
-            <div class="card text-bg-primary shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title"><i class="bi bi-hdd-stack-fill me-2"></i>Total Assets</h5>
-                    <h3 class="card-text">@ViewBag.TotalAssets</h3>
+            <div class="border rounded p-3 shadow-sm bg-white text-center">
+                <div class="mb-2 text-primary">
+                    <i class="bi bi-hdd-stack fs-2"></i>
                 </div>
+                <h6 class="fw-semibold">Total Assets</h6>
+                <p class="fs-4 mb-0">@ViewBag.TotalAssets</p>
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card text-bg-success shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title"><i class="bi bi-check-circle-fill me-2"></i>Available Assets</h5>
-                    <h3 class="card-text">@ViewBag.AvailableAssets</h3>
+            <div class="border rounded p-3 shadow-sm bg-white text-center">
+                <div class="mb-2 text-success">
+                    <i class="bi bi-check-circle fs-2"></i>
                 </div>
+                <h6 class="fw-semibold">Available Assets</h6>
+                <p class="fs-4 mb-0">@ViewBag.AvailableAssets</p>
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card text-bg-warning shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title"><i class="bi bi-tools me-2"></i>Under Service</h5>
-                    <h3 class="card-text">@ViewBag.UnderServiceAssets</h3>
+            <div class="border rounded p-3 shadow-sm bg-white text-center">
+                <div class="mb-2 text-warning">
+                    <i class="bi bi-tools fs-2"></i>
                 </div>
+                <h6 class="fw-semibold">Under Service</h6>
+                <p class="fs-4 mb-0">@ViewBag.UnderServiceAssets</p>
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card text-bg-secondary shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title"><i class="bi bi-exclamation-triangle-fill me-2"></i>Not Working</h5>
-                    <h3 class="card-text">@ViewBag.NotWorkingAssets</h3>
+            <div class="border rounded p-3 shadow-sm bg-white text-center">
+                <div class="mb-2 text-secondary">
+                    <i class="bi bi-exclamation-triangle fs-2"></i>
                 </div>
+                <h6 class="fw-semibold">Not Working</h6>
+                <p class="fs-4 mb-0">@ViewBag.NotWorkingAssets</p>
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card text-bg-info shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title"><i class="bi bi-people-fill me-2"></i>Total Employees</h5>
-                    <h3 class="card-text">@ViewBag.TotalEmployees</h3>
+            <div class="border rounded p-3 shadow-sm bg-white text-center">
+                <div class="mb-2 text-info">
+                    <i class="bi bi-people fs-2"></i>
                 </div>
+                <h6 class="fw-semibold">Total Employees</h6>
+                <p class="fs-4 mb-0">@ViewBag.TotalEmployees</p>
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card text-bg-dark shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title"><i class="bi bi-box-arrow-up-right me-2"></i>Assigned Assets</h5>
-                    <h3 class="card-text">@ViewBag.AssignedAssets</h3>
+            <div class="border rounded p-3 shadow-sm bg-white text-center">
+                <div class="mb-2 text-dark">
+                    <i class="bi bi-box-arrow-up-right fs-2"></i>
                 </div>
+                <h6 class="fw-semibold">Assigned Assets</h6>
+                <p class="fs-4 mb-0">@ViewBag.AssignedAssets</p>
             </div>
         </div>
     </div>

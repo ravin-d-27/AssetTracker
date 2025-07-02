@@ -15,6 +15,5 @@ namespace AssetTracker.Web.Data
         public DbSet<Asset> Assets { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<AssetAssignment> AssetAssignments { get; set; }
-        public DbSet<AssetRequest> AssetRequests { get; set; }
     }
 }

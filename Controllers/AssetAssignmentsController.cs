@@ -66,16 +66,31 @@ namespace AssetTracker.Controllers
         {
             if (ModelState.IsValid)
             {
-                assetAssignment.AssignedDate = DateTime.Now;
-                _context.Add(assetAssignment);
+                // Validate assigned date
+                var now = DateTime.Now;
+                var earliestAllowed = now.AddHours(-48);
 
-                // Mark asset as assigned
-                var asset = await _context.Assets.FindAsync(assetAssignment.AssetId);
-                asset.Status = "Assigned";
+                if (assetAssignment.AssignedDate > now)
+                {
+                    ModelState.AddModelError("AssignedDate", "Assigned date cannot be in the future.");
+                }
+                else if (assetAssignment.AssignedDate < earliestAllowed)
+                {
+                    ModelState.AddModelError("AssignedDate", "Assigned date can only be within the last 48 hours.");
+                }
+                else
+                {
+                    _context.Add(assetAssignment);
 
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                    // Mark asset as assigned
+                    var asset = await _context.Assets.FindAsync(assetAssignment.AssetId);
+                    asset.Status = "Assigned";
+
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
             }
+
 
             ViewData["EmployeeId"] = new SelectList(_context.Employees, "Id", "Name", assetAssignment.EmployeeId);
             ViewData["AssetId"] = new SelectList(_context.Assets.Where(a => a.Status == "Available"), "Id", "Model", assetAssignment.AssetId);

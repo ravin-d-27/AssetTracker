@@ -2,89 +2,60 @@
     ViewData["Title"] = "Welcome to Asset Tracker";
 }
 
-<div class="container my-5">
+<div class="container py-5">
     <!-- Hero section -->
     <div class="text-center mb-5">
-        <h1 class="display-4 fw-bold text-primary">
-            <i class="bi bi-box-seam-fill"></i> Asset Tracker
+        <h1 class="fw-bold text-dark mb-3">
+            <i class="bi bi-box-seam"></i> Asset Tracker
         </h1>
-        <p class="lead text-muted">
-            Simplify, monitor, and manage all your organizational assets with ease.
+        <p class="lead text-secondary">
+            Track, manage, and simplify your organizational assets — all in one place.
         </p>
     </div>
 
-    <!-- About and features -->
-    <div class="row g-4 mb-5">
-        <div class="col-lg-6">
-            <div class="card h-100 shadow-sm border-0">
-                <div class="card-body">
-                    <h3 class="card-title mb-3">
-                        <i class="bi bi-info-circle-fill text-primary me-2"></i> About Asset Tracker
-                    </h3>
-                    <p class="card-text text-muted">
-                        Asset Tracker is a powerful, intuitive system designed to help businesses and teams keep precise records of their assets —
-                        from laptops and devices to tools and specialized equipment.
-                    </p>
-                    <p class="card-text text-muted">
-                        Built using <strong>ASP.NET Core MVC</strong> and styled with <strong>Bootstrap</strong>, Asset Tracker brings reliability, simplicity, and efficiency to asset management.
-                    </p>
-                </div>
-            </div>
+    <!-- Features -->
+    <div class="row text-center mb-5">
+        <div class="col-md-4 mb-4">
+            <i class="bi bi-hdd-stack fs-1 text-primary mb-2"></i>
+            <h5 class="fw-semibold">All Assets in One View</h5>
+            <p class="text-muted small">Effortlessly register and monitor assets, from laptops to tools, in real time.</p>
         </div>
-
-        <div class="col-lg-6">
-            <div class="card h-100 shadow-sm border-0">
-                <div class="card-body">
-                    <h3 class="card-title mb-3">
-                        <i class="bi bi-stars text-primary me-2"></i> Key Features
-                    </h3>
-                    <ul class="list-unstyled text-muted mb-0">
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> Register and manage all assets effortlessly</li>
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> Track assignments and returns by employees</li>
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> View detailed usage and return history</li>
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> Monitor asset conditions and status in real time</li>
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> Clean, modern UI for better user experience</li>
-                    </ul>
-                </div>
-            </div>
+        <div class="col-md-4 mb-4">
+            <i class="bi bi-people fs-1 text-primary mb-2"></i>
+            <h5 class="fw-semibold">Employee Assignments</h5>
+            <p class="text-muted small">Track who has which asset, with clear assignment and return history.</p>
+        </div>
+        <div class="col-md-4 mb-4">
+            <i class="bi bi-bar-chart-line fs-1 text-primary mb-2"></i>
+            <h5 class="fw-semibold">Actionable Insights</h5>
+            <p class="text-muted small">Gain visibility into asset utilization, conditions, and lifecycle decisions.</p>
         </div>
     </div>
 
-    <!-- Why use Asset Tracker -->
+    <!-- Why use -->
     <div class="row justify-content-center mb-5">
-        <div class="col-lg-10">
-            <div class="card shadow-sm border-0">
-                <div class="card-body">
-                    <h3 class="card-title mb-3">
-                        <i class="bi bi-lightbulb-fill text-primary me-2"></i> Why Choose Asset Tracker?
-                    </h3>
-                    <p class="text-muted">
-                        With traditional spreadsheets, managing assets can become time-consuming and error-prone.
-                        Asset Tracker makes it simple to:
-                    </p>
-                    <ul class="text-muted">
-                        <li>Eliminate manual tracking and reduce human errors</li>
-                        <li>Gain clear insights into asset utilization and availability</li>
-                        <li>Improve accountability with usage history per employee</li>
-                        <li>Make informed decisions about asset maintenance and lifecycle</li>
-                    </ul>
-                    <p class="text-muted mb-0">
-                        Perfect for IT departments, small businesses, educational institutions, and anyone looking to keep assets under control.
-                    </p>
-                </div>
-            </div>
+        <div class="col-lg-8 text-center">
+            <h4 class="fw-semibold mb-3">
+                <i class="bi bi-lightbulb text-primary me-1"></i> Why Choose Asset Tracker?
+            </h4>
+            <p class="text-muted mb-2">
+                Move beyond spreadsheets. Streamline asset tracking, reduce errors, and make data-driven decisions effortlessly.
+            </p>
+            <p class="text-muted small">
+                Ideal for IT teams, small businesses, schools — anyone who wants control over their assets.
+            </p>
         </div>
     </div>
 
     <!-- Call to action -->
-    <div class="text-center">
-        <a asp-area="" asp-controller="Assets" asp-action="Index" class="btn btn-primary btn-lg shadow">
-            <i class="bi bi-hdd-stack-fill me-2"></i> Explore Your Assets
+    <div class="text-center mb-4">
+        <a asp-area="" asp-controller="Assets" asp-action="Index" class="btn btn-primary btn-lg px-4 shadow-sm">
+            <i class="bi bi-arrow-right-circle me-2"></i> Get Started
         </a>
     </div>
 
     <!-- Footer note -->
-    <div class="text-center text-muted mt-4 small">
-        &copy; 2025 Asset Tracker. Designed to simplify asset management.
+    <div class="text-center text-muted small">
+        &copy; 2025 Asset Tracker. Minimal design, maximum clarity.
     </div>
 </div>

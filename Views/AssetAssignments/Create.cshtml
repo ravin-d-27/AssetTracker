@@ -5,45 +5,50 @@
 }
 
 <div class="container my-4">
-    <div class="card shadow-sm">
+    <div class="card shadow-sm border-0">
         <div class="card-header bg-primary text-white d-flex align-items-center">
             <i class="bi bi-plus-circle me-2"></i>
             <h5 class="mb-0">Create New Asset Assignment</h5>
         </div>
         <div class="card-body">
-            <form asp-action="Create" method="post">
+            <form asp-action="Create" method="post" novalidate>
                 <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
 
                 <div class="mb-3">
-                    <label asp-for="AssetId" class="form-label"></label>
-                    <select asp-for="AssetId" class="form-select" asp-items="ViewBag.AssetId"></select>
-                    <span asp-validation-for="AssetId" class="text-danger"></span>
+                    <label asp-for="AssetId" class="form-label">Select Asset</label>
+                    <select asp-for="AssetId" class="form-select" asp-items="ViewBag.AssetId">
+                        <option value="">-- Choose an asset --</option>
+                    </select>
+                    <span asp-validation-for="AssetId" class="text-danger small"></span>
                 </div>
 
                 <div class="mb-3">
-                    <label asp-for="EmployeeId" class="form-label"></label>
-                    <select asp-for="EmployeeId" class="form-select" asp-items="ViewBag.EmployeeId"></select>
-                    <span asp-validation-for="EmployeeId" class="text-danger"></span>
+                    <label asp-for="EmployeeId" class="form-label">Assign To Employee</label>
+                    <select asp-for="EmployeeId" class="form-select" asp-items="ViewBag.EmployeeId">
+                        <option value="">-- Choose an employee --</option>
+                    </select>
+                    <span asp-validation-for="EmployeeId" class="text-danger small"></span>
                 </div>
 
                 <div class="mb-3">
-                    <label asp-for="AssignedDate" class="form-label"></label>
-                    <input asp-for="AssignedDate" class="form-control" />
-                    <span asp-validation-for="AssignedDate" class="text-danger"></span>
+                    <label asp-for="AssignedDate" class="form-label">Assignment Date & Time</label>
+                    <input asp-for="AssignedDate" class="form-control" type="datetime-local" />
+                    <small class="text-muted">Can be within the last 48 hours only. Future dates are not allowed.</small>
+                    <span asp-validation-for="AssignedDate" class="text-danger small"></span>
                 </div>
 
                 <div class="mb-3">
-                    <label asp-for="ConditionAtReturn" class="form-label"></label>
-                    <input asp-for="ConditionAtReturn" class="form-control" />
-                    <span asp-validation-for="ConditionAtReturn" class="text-danger"></span>
+                    <label asp-for="ConditionAtReturn" class="form-label">Condition at Return (optional)</label>
+                    <input asp-for="ConditionAtReturn" class="form-control" placeholder="Leave empty for now; fill when returned" />
+                    <span asp-validation-for="ConditionAtReturn" class="text-danger small"></span>
                 </div>
 
                 <div class="d-flex justify-content-between mt-4">
-                    <a asp-action="Index" class="btn btn-secondary">
+                    <a asp-action="Index" class="btn btn-outline-secondary">
                         <i class="bi bi-arrow-left"></i> Back to List
                     </a>
                     <button type="submit" class="btn btn-primary">
-                        <i class="bi bi-save"></i> Create
+                        <i class="bi bi-save"></i> Create Assignment
                     </button>
                 </div>
             </form>
@@ -52,7 +57,5 @@
 </div>
 
 @section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
+    @await Html.PartialAsync("_ValidationScriptsPartial")
 }
