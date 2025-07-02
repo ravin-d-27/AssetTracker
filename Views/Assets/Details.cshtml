@@ -28,6 +28,44 @@
                 <dd class="col-sm-8">@Html.DisplayFor(model => model.Status)</dd>
             </dl>
         </div>
+       <br />
+
+        <div class="card-header bg-primary text-white d-flex align-items-center">
+            <i class="bi bi-info-circle-fill me-2"></i>
+            <h5 class="mb-0">Usage History</h5>
+        </div>
+
+        @if (Model.AssetAssignments != null && Model.AssetAssignments.Any())
+        {
+            <table class="table table-sm table-bordered">
+                <thead class="table-light">
+                    <tr>
+                        <th>Employee</th>
+                        <th>Assigned Date</th>
+                        <th>Return Date</th>
+                        <th>Condition At Return</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var assignment in Model.AssetAssignments.OrderByDescending(a => a.AssignedDate))
+                    {
+                        <tr>
+                            <td>@assignment.Employee.Name</td>
+                            <td>@assignment.AssignedDate.ToShortDateString()</td>
+                            <td>@(assignment.ReturnDate?.ToShortDateString() ?? "-")</td>
+                            <td>@assignment.ConditionAtReturn</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <div class="p-3 text-muted fst-italic">
+                <i class="bi bi-info-circle me-1"></i> No one has used this yet. It is brand new.
+            </div>
+        }
+
         <div class="card-footer d-flex justify-content-between">
             <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">
                 <i class="bi bi-pencil-square"></i> Edit

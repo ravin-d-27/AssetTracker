@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AssetTracker.Web.Data;
 using AssetTracker.Web.Models.Entities;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AssetTracker.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AssetsController : Controller
     {
         private readonly AssetTrackerContext _context;
@@ -33,8 +35,10 @@ namespace AssetTracker.Controllers
                 return NotFound();
             }
 
-            var asset = await _context.Assets
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var asset = _context.Assets
+                        .Include(a => a.AssetAssignments)
+                        .ThenInclude(aa => aa.Employee)
+                        .FirstOrDefault(a => a.Id == id);
             if (asset == null)
             {
                 return NotFound();

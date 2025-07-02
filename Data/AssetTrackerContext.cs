@@ -1,16 +1,20 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AssetTracker.Models.Entities;
 using AssetTracker.Web.Models.Entities;
-using System.Collections.Generic;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace AssetTracker.Web.Data
 {
-    public class AssetTrackerContext : DbContext
+    public class AssetTrackerContext : IdentityDbContext<ApplicationUser>
     {
         public AssetTrackerContext(DbContextOptions<AssetTrackerContext> options)
-        : base(options) { }
+            : base(options)
+        {
+        }
 
-        public DbSet<Employee> Employees { get; set; }
         public DbSet<Asset> Assets { get; set; }
+        public DbSet<Employee> Employees { get; set; }
         public DbSet<AssetAssignment> AssetAssignments { get; set; }
+        public DbSet<AssetRequest> AssetRequests { get; set; }
     }
 }

@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AssetTracker.Web.Data;
 using AssetTracker.Web.Models.Entities;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AssetTracker.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class EmployeesController : Controller
     {
         private readonly AssetTrackerContext _context;

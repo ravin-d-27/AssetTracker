@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using AssetTracker.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AssetTracker.Controllers;
 

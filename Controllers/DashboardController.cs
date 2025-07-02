@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using AssetTracker.Web.Models;
 using AssetTracker.Web.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AssetTracker.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class DashboardController : Controller
     {
         private readonly AssetTrackerContext _context;   // replace with your real context class name
